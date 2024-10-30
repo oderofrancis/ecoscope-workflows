@@ -3,6 +3,9 @@ test1:
   name: Test 1
   description: "Test case for patrol-events"
   params:
+    workflow_details:
+      name: "Patrols Workflow"
+      description: "A patrols workflow"
     # Parameters for 'Set Groupers' using task `set_groupers`.
     groupers:
       groupers: # (list[ecoscope_workflows.tasks.groupby._groupby.Grouper], FieldInfo(annotation=NoneType, required=True, description='            Index(es) and/or column(s) to group by, along with\n            optional display names and help text.\n            '))

@@ -409,4 +409,3 @@ workflow:
         - ${{ workflow.max_speed_grouped_widget.return }}
       groupers: ${{ workflow.groupers.return }}
       time_range: ${{ workflow.time_range.return}}
-      details: ${{ workflow.workflow_details.return}}

@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "13739a079341a84db3ff8394abc1024f8ac9b149108eb3b664fe65f26944786a"
+# from-spec-sha256 = "38ed8e3ac69cd7649e9c517bb5be8b37687fcf049413755f7bc8ad42ff0b2cc9"
 
 # ruff: noqa: E402
 
@@ -99,7 +99,6 @@ def main(params: Params):
             "grouped_fd_map_widget_merge",
             "groupers",
             "time_range",
-            "workflow_details",
         ],
     }
 
@@ -448,7 +447,6 @@ def main(params: Params):
                 ),
                 "groupers": DependsOn("groupers"),
                 "time_range": DependsOn("time_range"),
-                "details": DependsOn("workflow_details"),
             }
             | params_dict["events_dashboard"],
             method="call",

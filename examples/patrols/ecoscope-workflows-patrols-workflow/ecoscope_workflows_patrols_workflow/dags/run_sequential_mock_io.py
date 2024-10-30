@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4dab6f509b16bc5d4578e3cb2f59388080f44633d1edbc8e2074def8c74de463"
+# from-spec-sha256 = "4382bec97e4637434433df6a84925c68921ba6c1d49dd2955b1dfcb2a328ea4b"
 
 # ruff: noqa: E402
 
@@ -8,6 +8,7 @@
 Lines specific to the testing context are marked with a test tube emoji (🧪) to indicate
 that they would not be included (or would be different) in the production version of this file.
 """
+# ruff: noqa: F841
 
 import json
 import os
@@ -427,7 +428,6 @@ def main(params: Params):
             ],
             groupers=groupers,
             time_range=time_range,
-            details=workflow_details,
             **params_dict["patrol_dashboard"],
         )
         .call()

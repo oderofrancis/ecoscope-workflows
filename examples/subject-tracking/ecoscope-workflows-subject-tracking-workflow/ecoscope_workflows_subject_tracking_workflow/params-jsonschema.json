@@ -15,6 +15,7 @@
           "description": "A description"
         },
         "image_url": {
+          "default": null,
           "title": "Image Url",
           "type": "string",
           "description": "An image url"
@@ -22,8 +23,7 @@
       },
       "required": [
         "name",
-        "description",
-        "image_url"
+        "description"
       ],
       "type": "object",
       "title": "Set Workflow Details"
@@ -2155,29 +2155,6 @@
         "views"
       ],
       "title": "GroupedWidget",
-      "type": "object"
-    },
-    "WorkflowDetails": {
-      "properties": {
-        "name": {
-          "title": "Name",
-          "type": "string"
-        },
-        "description": {
-          "title": "Description",
-          "type": "string"
-        },
-        "image_url": {
-          "default": null,
-          "title": "Image Url",
-          "type": "string"
-        }
-      },
-      "required": [
-        "name",
-        "description"
-      ],
-      "title": "WorkflowDetails",
       "type": "object"
     }
   },

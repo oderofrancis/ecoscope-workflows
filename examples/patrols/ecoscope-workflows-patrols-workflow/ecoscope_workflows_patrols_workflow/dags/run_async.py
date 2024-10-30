@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4dab6f509b16bc5d4578e3cb2f59388080f44633d1edbc8e2074def8c74de463"
+# from-spec-sha256 = "4382bec97e4637434433df6a84925c68921ba6c1d49dd2955b1dfcb2a328ea4b"
 import json
 import os
 
@@ -113,7 +113,6 @@ def main(params: Params):
             "max_speed_grouped_widget",
             "groupers",
             "time_range",
-            "workflow_details",
         ],
     }
 
@@ -594,7 +593,6 @@ def main(params: Params):
                 ),
                 "groupers": DependsOn("groupers"),
                 "time_range": DependsOn("time_range"),
-                "details": DependsOn("workflow_details"),
             }
             | params_dict["patrol_dashboard"],
             method="call",

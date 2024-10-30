@@ -1,6 +1,8 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "95135043b6f493b70457e3f7479ce50554ddb8f786beaca41929b331759dc9a0"
+# from-spec-sha256 = "00d8c9580f2a24ef3fda767e8e8886ba9c48337c73bb8b07fd7ed5a628eef24f"
+# ruff: noqa: F841
+
 import json
 import os
 
@@ -393,7 +395,6 @@ def main(params: Params):
             ],
             groupers=groupers,
             time_range=time_range,
-            details=workflow_details,
             **params_dict["subject_tracking_dashboard"],
         )
         .call()

@@ -343,4 +343,3 @@ workflow:
         - ${{ workflow.traj_daynight_grouped_map_widget.return }}
       groupers: ${{ workflow.groupers.return }}
       time_range: ${{ workflow.time_range.return}}
-      details: ${{ workflow.workflow_details.return}}

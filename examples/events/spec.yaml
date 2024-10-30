@@ -255,4 +255,3 @@ workflow:
         - ${{ workflow.grouped_fd_map_widget_merge.return }}
       groupers: ${{ workflow.groupers.return }}
       time_range: ${{ workflow.time_range.return}}
-      details: ${{ workflow.workflow_details.return}}

@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "13739a079341a84db3ff8394abc1024f8ac9b149108eb3b664fe65f26944786a"
+# from-spec-sha256 = "38ed8e3ac69cd7649e9c517bb5be8b37687fcf049413755f7bc8ad42ff0b2cc9"
 
 
 from __future__ import annotations
@@ -18,7 +18,9 @@ class WorkflowDetails(BaseModel):
     )
     name: str = Field(..., description="The name of your workflow", title="Name")
     description: str = Field(..., description="A description", title="Description")
-    image_url: str = Field(..., description="An image url", title="Image Url")
+    image_url: Optional[str] = Field(
+        None, description="An image url", title="Image Url"
+    )
 
 
 class TimeRange(BaseModel):
@@ -529,12 +531,6 @@ class GroupedWidget(BaseModel):
     title: str = Field(..., title="Title")
     is_filtered: bool = Field(..., title="Is Filtered")
     views: Dict[str, Union[Path, AnyUrl, str]] = Field(..., title="Views")
-
-
-class WorkflowDetails1(BaseModel):
-    name: str = Field(..., title="Name")
-    description: str = Field(..., title="Description")
-    image_url: Optional[str] = Field(None, title="Image Url")
 
 
 class Groupers(BaseModel):
