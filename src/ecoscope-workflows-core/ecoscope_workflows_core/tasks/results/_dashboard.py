@@ -14,7 +14,6 @@ from ecoscope_workflows_core.jsonschema import (
     RJSFFilterUiSchema,
     oneOf,
 )
-from ecoscope_workflows_core.tasks.config._workflow_details import WorkflowDetails
 from ecoscope_workflows_core.tasks.filter._filter import TimeRange
 from ecoscope_workflows_core.tasks.groupby._groupby import Grouper
 from ecoscope_workflows_core.tasks.results._widget_types import (
@@ -281,10 +280,6 @@ def gather_dashboard(
             """,
             exclude=True,
         ),
-    ] = None,
-    details: Annotated[
-        WorkflowDetails | SkipJsonSchema[None],
-        Field(description="Workflow details.", exclude=True),
     ] = None,
 ) -> Annotated[Dashboard, Field()]:
     # if the input is any kind of list, try to flatten it because it might be nested
