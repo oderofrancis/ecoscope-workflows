@@ -1255,22 +1255,8 @@
     },
     "subject_tracking_dashboard": {
       "additionalProperties": false,
-      "properties": {
-        "title": {
-          "title": "Title",
-          "type": "string",
-          "description": "The title of the dashboard"
-        },
-        "description": {
-          "title": "Description",
-          "type": "string",
-          "description": "The description of the dashboard"
-        }
-      },
-      "required": [
-        "title",
-        "description"
-      ],
+      "properties": {},
+      "required": [],
       "type": "object",
       "title": "Create Dashboard with Subject Tracking Widgets"
     }
@@ -2155,6 +2141,29 @@
         "views"
       ],
       "title": "GroupedWidget",
+      "type": "object"
+    },
+    "WorkflowDetails": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "image_url": {
+          "default": "",
+          "title": "Image Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "description"
+      ],
+      "title": "WorkflowDetails",
       "type": "object"
     }
   },

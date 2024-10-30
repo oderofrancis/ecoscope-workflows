@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4382bec97e4637434433df6a84925c68921ba6c1d49dd2955b1dfcb2a328ea4b"
+# from-spec-sha256 = "1c976ba0e5c377c255c0965a50118c1da3fa0624e5bcd3a224df721f77a02741"
 
 # ruff: noqa: E402
 
@@ -8,7 +8,6 @@
 Lines specific to the testing context are marked with a test tube emoji (🧪) to indicate
 that they would not be included (or would be different) in the production version of this file.
 """
-# ruff: noqa: F841
 
 import json
 import os
@@ -415,6 +414,7 @@ def main(params: Params):
     patrol_dashboard = (
         gather_dashboard.validate()
         .partial(
+            details=workflow_details,
             widgets=[
                 traj_pe_grouped_map_widget,
                 td_map_widget,

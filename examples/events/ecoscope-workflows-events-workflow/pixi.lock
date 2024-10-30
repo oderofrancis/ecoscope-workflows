@@ -92,7 +92,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/email_validator-2.2.0-hd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/executing-2.1.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/expat-2.6.3-h5888daf_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-0.115.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-cli-0.0.5-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/fiona-1.9.6-py312h39f3bbb_2.conda
@@ -103,7 +102,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-inconsolata-3.000-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-source-code-pro-2.038-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-ubuntu-0.83-h77eed37_3.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.14.2-h14ed4e7_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.15.0-h7e30c49_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-ecosystem-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-forge-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/fonttools-4.54.1-py312h178313f_1.conda
@@ -925,7 +924,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/email_validator-2.2.0-hd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/executing-2.1.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/expat-2.6.3-hf9b8971_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-0.115.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-cli-0.0.5-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fiona-1.9.6-py312h831b459_2.conda
@@ -936,7 +934,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-inconsolata-3.000-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-source-code-pro-2.038-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-ubuntu-0.83-h77eed37_3.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fontconfig-2.14.2-h82840c6_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fontconfig-2.15.0-h1383a14_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-ecosystem-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-forge-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fonttools-4.54.1-py312ha0ccf2a_1.conda
@@ -1336,7 +1334,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/email_validator-2.2.0-hd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/executing-2.1.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/expat-2.6.3-h5888daf_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-0.115.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-cli-0.0.5-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/fiona-1.9.6-py312h39f3bbb_2.conda
@@ -1347,7 +1344,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-inconsolata-3.000-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-source-code-pro-2.038-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-ubuntu-0.83-h77eed37_3.conda
-      - conda: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.14.2-h14ed4e7_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.15.0-h7e30c49_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-ecosystem-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-forge-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/fonttools-4.54.1-py312h178313f_1.conda
@@ -2177,7 +2174,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/email_validator-2.2.0-hd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/exceptiongroup-1.2.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/executing-2.1.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/expat-2.6.3-hf9b8971_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-0.115.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fastapi-cli-0.0.5-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fiona-1.9.6-py312h831b459_2.conda
@@ -2188,7 +2184,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-inconsolata-3.000-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-source-code-pro-2.038-h77eed37_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/font-ttf-ubuntu-0.83-h77eed37_3.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fontconfig-2.14.2-h82840c6_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fontconfig-2.15.0-h1383a14_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-ecosystem-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/noarch/fonts-conda-forge-1-0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fonttools-4.54.1-py312ha0ccf2a_1.conda
@@ -5687,8 +5683,8 @@ packages:
   subdir: noarch
   noarch: python
   url: file:///tmp/ecoscope-workflows/release/artifacts/noarch/ecoscope-workflows-core-v0.0.11-pyh4616a5c_0.conda
-  sha256: 712308d1bc79f8f579dbdcb139909cee4c9a8705e54a9cba1bcdb8e11688e1e3
-  md5: eb076ef8dee354a4c327addffdae53b2
+  sha256: 6a82256b31d48c439dbc440052565234df4ff4220f11c57c68f0205241ed5e92
+  md5: 3a1cda43d79c9cc5eef0b5847e5933c0
   depends:
   - python
   - jinja2
@@ -5705,13 +5701,13 @@ packages:
   - pydot
   - python
   license: BSD-3-Clause
-  size: 51073
-  timestamp: 1730284724977
+  size: 51094
+  timestamp: 1730286131713
 - kind: pypi
   name: ecoscope-workflows-events-workflow
   version: 0.0.0
   path: .
-  sha256: a4b8104c61a5e8e6d99ea247cfcb855888ecdaba492a282d1830ced751f92efd
+  sha256: 92b479b69563bde57d5772e6c64d3112931185dde18364c2254092315e616004
   requires_python: '>=3.10'
   editable: true
 - kind: conda
@@ -5721,16 +5717,16 @@ packages:
   subdir: noarch
   noarch: python
   url: file:///tmp/ecoscope-workflows/release/artifacts/noarch/ecoscope-workflows-ext-ecoscope-v0.0.11-pyh4616a5c_0.conda
-  sha256: fb35a2c1293e56060460a1e433dd731259f9a7bb56114d7ba8348c43a97eaf27
-  md5: 8e7f8564063db19ae91d6e50d01fb667
+  sha256: f10f783a12e7a1271340eb18c0d1dee835da21c59cd8f273d693f7d767a6b9e6
+  md5: a8524df4f42f19ced7628b54a4701d73
   depends:
   - python
   - ecoscope-workflows-core ==v0.0.11
   - ecoscope ==v1.8.6
   - python
   license: BSD-3-Clause
-  size: 6415787
-  timestamp: 1730284753689
+  size: 6415790
+  timestamp: 1730286158070
 - kind: conda
   name: email-validator
   version: 2.2.0
@@ -5800,23 +5796,6 @@ packages:
 - kind: conda
   name: expat
   version: 2.6.3
-  build: h5888daf_0
-  subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/expat-2.6.3-h5888daf_0.conda
-  sha256: 65bd479c75ce876f26600cb230d6ebc474086e31fa384af9b4282b36842ed7e2
-  md5: 6595440079bed734b113de44ffd3cd0a
-  depends:
-  - __glibc >=2.17,<3.0.a0
-  - libexpat 2.6.3 h5888daf_0
-  - libgcc >=13
-  license: MIT
-  license_family: MIT
-  purls: []
-  size: 137891
-  timestamp: 1725568750673
-- kind: conda
-  name: expat
-  version: 2.6.3
   build: h5ad3122_0
   subdir: linux-aarch64
   url: https://conda.anaconda.org/conda-forge/linux-aarch64/expat-2.6.3-h5ad3122_0.conda
@@ -5830,22 +5809,6 @@ packages:
   purls: []
   size: 130283
   timestamp: 1725568848182
-- kind: conda
-  name: expat
-  version: 2.6.3
-  build: hf9b8971_0
-  subdir: osx-arm64
-  url: https://conda.anaconda.org/conda-forge/osx-arm64/expat-2.6.3-hf9b8971_0.conda
-  sha256: 4d52ad7a7eb39f71a38bbf2b6377183024bd3bf4cfb5dcd33b31636a6f9a7abc
-  md5: 726bbcf3549fe22b4556285d946fed2d
-  depends:
-  - __osx >=11.0
-  - libexpat 2.6.3 hf9b8971_0
-  license: MIT
-  license_family: MIT
-  purls: []
-  size: 125005
-  timestamp: 1725568799108
 - kind: conda
   name: fastapi
   version: 0.115.4
@@ -6138,42 +6101,6 @@ packages:
 - kind: conda
   name: fontconfig
   version: 2.14.2
-  build: h14ed4e7_0
-  subdir: linux-64
-  url: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.14.2-h14ed4e7_0.conda
-  sha256: 155d534c9037347ea7439a2c6da7c24ffec8e5dd278889b4c57274a1d91e0a83
-  md5: 0f69b688f52ff6da70bccb7ff7001d1d
-  depends:
-  - expat >=2.5.0,<3.0a0
-  - freetype >=2.12.1,<3.0a0
-  - libgcc-ng >=12
-  - libuuid >=2.32.1,<3.0a0
-  - libzlib >=1.2.13,<2.0.0a0
-  license: MIT
-  license_family: MIT
-  purls: []
-  size: 272010
-  timestamp: 1674828850194
-- kind: conda
-  name: fontconfig
-  version: 2.14.2
-  build: h82840c6_0
-  subdir: osx-arm64
-  url: https://conda.anaconda.org/conda-forge/osx-arm64/fontconfig-2.14.2-h82840c6_0.conda
-  sha256: 7094917fc6758186e17c61d8ee8fd2bbbe9f303b4addac61d918fa415c497e2b
-  md5: f77d47ddb6d3cc5b39b9bdf65635afbb
-  depends:
-  - expat >=2.5.0,<3.0a0
-  - freetype >=2.12.1,<3.0a0
-  - libzlib >=1.2.13,<2.0.0a0
-  license: MIT
-  license_family: MIT
-  purls: []
-  size: 237668
-  timestamp: 1674829263740
-- kind: conda
-  name: fontconfig
-  version: 2.14.2
   build: ha9a116f_0
   subdir: linux-aarch64
   url: https://conda.anaconda.org/conda-forge/linux-aarch64/fontconfig-2.14.2-ha9a116f_0.conda
@@ -6190,6 +6117,44 @@ packages:
   purls: []
   size: 280375
   timestamp: 1674830224830
+- kind: conda
+  name: fontconfig
+  version: 2.15.0
+  build: h1383a14_1
+  build_number: 1
+  subdir: osx-arm64
+  url: https://conda.anaconda.org/conda-forge/osx-arm64/fontconfig-2.15.0-h1383a14_1.conda
+  sha256: f79d3d816fafbd6a2b0f75ebc3251a30d3294b08af9bb747194121f5efa364bc
+  md5: 7b29f48742cea5d1ccb5edd839cb5621
+  depends:
+  - __osx >=11.0
+  - freetype >=2.12.1,<3.0a0
+  - libexpat >=2.6.3,<3.0a0
+  - libzlib >=1.3.1,<2.0a0
+  license: MIT
+  purls: []
+  size: 234227
+  timestamp: 1730284037572
+- kind: conda
+  name: fontconfig
+  version: 2.15.0
+  build: h7e30c49_1
+  build_number: 1
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/fontconfig-2.15.0-h7e30c49_1.conda
+  sha256: 7093aa19d6df5ccb6ca50329ef8510c6acb6b0d8001191909397368b65b02113
+  md5: 8f5b0b297b59e1ac160ad4beec99dbee
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - freetype >=2.12.1,<3.0a0
+  - libexpat >=2.6.3,<3.0a0
+  - libgcc >=13
+  - libuuid >=2.38.1,<3.0a0
+  - libzlib >=1.3.1,<2.0a0
+  license: MIT
+  purls: []
+  size: 265599
+  timestamp: 1730283881107
 - kind: conda
   name: fonts-conda-ecosystem
   version: '1'

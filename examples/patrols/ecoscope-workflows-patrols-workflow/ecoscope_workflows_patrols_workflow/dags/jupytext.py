@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4382bec97e4637434433df6a84925c68921ba6c1d49dd2955b1dfcb2a328ea4b"
+# from-spec-sha256 = "1c976ba0e5c377c255c0965a50118c1da3fa0624e5bcd3a224df721f77a02741"
 
 
 # ruff: noqa: E402
@@ -1085,16 +1085,14 @@ td_map_widget = create_map_widget_single_view.partial(
 # %%
 # parameters
 
-patrol_dashboard_params = dict(
-    title=...,
-    description=...,
-)
+patrol_dashboard_params = dict()
 
 # %%
 # call the task
 
 
 patrol_dashboard = gather_dashboard.partial(
+    details=workflow_details,
     widgets=[
         traj_pe_grouped_map_widget,
         td_map_widget,

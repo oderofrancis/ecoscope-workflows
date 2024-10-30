@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "38ed8e3ac69cd7649e9c517bb5be8b37687fcf049413755f7bc8ad42ff0b2cc9"
+# from-spec-sha256 = "b5668113de9c7ad66e877a1a1213652245a4dcce1605622c1676fda3585da365"
 
 # ruff: noqa: E402
 
@@ -91,6 +91,7 @@ def main(params: Params):
         "grouped_fd_map_widget": ["grouped_fd_ecomap_html_url"],
         "grouped_fd_map_widget_merge": ["grouped_fd_map_widget"],
         "events_dashboard": [
+            "workflow_details",
             "events_map_widget",
             "events_bar_chart_widget",
             "fd_map_widget",
@@ -435,6 +436,7 @@ def main(params: Params):
         "events_dashboard": Node(
             async_task=gather_dashboard.validate().set_executor("lithops"),
             partial={
+                "details": DependsOn("workflow_details"),
                 "widgets": DependsOnSequence(
                     [
                         DependsOn("events_map_widget"),

@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "38ed8e3ac69cd7649e9c517bb5be8b37687fcf049413755f7bc8ad42ff0b2cc9"
+# from-spec-sha256 = "b5668113de9c7ad66e877a1a1213652245a4dcce1605622c1676fda3585da365"
 
 
 from __future__ import annotations
@@ -331,16 +331,6 @@ class GroupedFdMapWidget(BaseModel):
     title: str = Field(..., description="The title of the widget", title="Title")
 
 
-class EventsDashboard(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str = Field(..., description="The title of the dashboard", title="Title")
-    description: str = Field(
-        ..., description="The description of the dashboard", title="Description"
-    )
-
-
 class Grouper(BaseModel):
     index_name: str = Field(..., title="Index Name")
     display_name: Optional[str] = Field(None, title="Display Name")
@@ -529,6 +519,12 @@ class GroupedWidget(BaseModel):
     title: str = Field(..., title="Title")
     is_filtered: bool = Field(..., title="Is Filtered")
     views: Dict[str, Union[Path, AnyUrl, str]] = Field(..., title="Views")
+
+
+class WorkflowDetails1(BaseModel):
+    name: str = Field(..., title="Name")
+    description: str = Field(..., title="Description")
+    image_url: Optional[str] = Field("", title="Image Url")
 
 
 class Groupers(BaseModel):
@@ -923,6 +919,6 @@ class Params(BaseModel):
     grouped_fd_map_widget_merge: Optional[Dict[str, Any]] = Field(
         None, title="Merge Feature Density Widget Views"
     )
-    events_dashboard: Optional[EventsDashboard] = Field(
+    events_dashboard: Optional[Dict[str, Any]] = Field(
         None, title="Create Dashboard with Map Widgets"
     )

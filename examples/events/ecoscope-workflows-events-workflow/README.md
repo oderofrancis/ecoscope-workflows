@@ -1,7 +1,7 @@
 ```
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "38ed8e3ac69cd7649e9c517bb5be8b37687fcf049413755f7bc8ad42ff0b2cc9"
+# from-spec-sha256 = "b5668113de9c7ad66e877a1a1213652245a4dcce1605622c1676fda3585da365"
 
 ```
 # ecoscope-workflows-events-workflow

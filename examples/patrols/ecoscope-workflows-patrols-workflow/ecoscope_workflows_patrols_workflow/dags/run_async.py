@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4382bec97e4637434433df6a84925c68921ba6c1d49dd2955b1dfcb2a328ea4b"
+# from-spec-sha256 = "1c976ba0e5c377c255c0965a50118c1da3fa0624e5bcd3a224df721f77a02741"
 import json
 import os
 
@@ -102,6 +102,7 @@ def main(params: Params):
         "td_ecomap_html_url": ["td_ecomap"],
         "td_map_widget": ["td_ecomap_html_url"],
         "patrol_dashboard": [
+            "workflow_details",
             "traj_pe_grouped_map_widget",
             "td_map_widget",
             "patrol_events_bar_chart_widget",
@@ -578,6 +579,7 @@ def main(params: Params):
         "patrol_dashboard": Node(
             async_task=gather_dashboard.validate().set_executor("lithops"),
             partial={
+                "details": DependsOn("workflow_details"),
                 "widgets": DependsOnSequence(
                     [
                         DependsOn("traj_pe_grouped_map_widget"),

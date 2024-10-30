@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4382bec97e4637434433df6a84925c68921ba6c1d49dd2955b1dfcb2a328ea4b"
+# from-spec-sha256 = "1c976ba0e5c377c255c0965a50118c1da3fa0624e5bcd3a224df721f77a02741"
 
 
 from __future__ import annotations
@@ -434,16 +434,6 @@ class TdMapWidget(BaseModel):
     title: str = Field(..., description="The title of the widget", title="Title")
 
 
-class PatrolDashboard(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str = Field(..., description="The title of the dashboard", title="Title")
-    description: str = Field(
-        ..., description="The description of the dashboard", title="Description"
-    )
-
-
 class Grouper(BaseModel):
     index_name: str = Field(..., title="Index Name")
     display_name: Optional[str] = Field(None, title="Display Name")
@@ -642,6 +632,12 @@ class GroupedWidget(BaseModel):
     title: str = Field(..., title="Title")
     is_filtered: bool = Field(..., title="Is Filtered")
     views: Dict[str, Union[Path, AnyUrl, str]] = Field(..., title="Views")
+
+
+class WorkflowDetails1(BaseModel):
+    name: str = Field(..., title="Name")
+    description: str = Field(..., title="Description")
+    image_url: Optional[str] = Field("", title="Image Url")
 
 
 class Groupers(BaseModel):
@@ -1159,6 +1155,6 @@ class FormData(BaseModel):
         alias="Time Density Map",
         description="Calculate time density from patrol trajectories and display it on a map.",
     )
-    patrol_dashboard: Optional[PatrolDashboard] = Field(
+    patrol_dashboard: Optional[Dict[str, Any]] = Field(
         None, title="Create Dashboard with Patrol Map Widgets"
     )
