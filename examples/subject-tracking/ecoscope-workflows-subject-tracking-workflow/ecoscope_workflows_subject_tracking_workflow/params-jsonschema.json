@@ -15,7 +15,7 @@
           "description": "A description"
         },
         "image_url": {
-          "default": null,
+          "default": "",
           "title": "Image Url",
           "type": "string",
           "description": "An image url"

@@ -18,9 +18,7 @@ class WorkflowDetails(BaseModel):
     )
     name: str = Field(..., description="The name of your workflow", title="Name")
     description: str = Field(..., description="A description", title="Description")
-    image_url: Optional[str] = Field(
-        None, description="An image url", title="Image Url"
-    )
+    image_url: Optional[str] = Field("", description="An image url", title="Image Url")
 
 
 class TimeRange(BaseModel):
