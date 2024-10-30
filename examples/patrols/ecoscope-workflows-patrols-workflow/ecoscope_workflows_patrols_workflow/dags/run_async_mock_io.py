@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "8a3657e3ebaa4bfbe1bbaaac414f150f77aaa86dfa1e7d1d71c3b10235974666"
+# from-spec-sha256 = "4dab6f509b16bc5d4578e3cb2f59388080f44633d1edbc8e2074def8c74de463"
 
 # ruff: noqa: E402
 
@@ -17,6 +17,7 @@ from ecoscope_workflows_core.testing import create_task_magicmock  # 🧪
 
 from ecoscope_workflows_core.graph import DependsOn, DependsOnSequence, Graph, Node
 
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 
@@ -66,6 +67,7 @@ def main(params: Params):
     params_dict = json.loads(params.model_dump_json(exclude_unset=True))
 
     dependencies = {
+        "workflow_details": [],
         "groupers": [],
         "time_range": [],
         "patrol_obs": ["time_range"],
@@ -132,10 +134,16 @@ def main(params: Params):
             "max_speed_grouped_widget",
             "groupers",
             "time_range",
+            "workflow_details",
         ],
     }
 
     nodes = {
+        "workflow_details": Node(
+            async_task=set_workflow_details.validate().set_executor("lithops"),
+            partial=params_dict["workflow_details"],
+            method="call",
+        ),
         "groupers": Node(
             async_task=set_groupers.validate().set_executor("lithops"),
             partial=params_dict["groupers"],
@@ -607,6 +615,7 @@ def main(params: Params):
                 ),
                 "groupers": DependsOn("groupers"),
                 "time_range": DependsOn("time_range"),
+                "details": DependsOn("workflow_details"),
             }
             | params_dict["patrol_dashboard"],
             method="call",

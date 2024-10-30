@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4c4b15573d985d4dd22886118300bbb53ad094f5c88dbd6cc5bdcc47703957a9"
+# from-spec-sha256 = "13739a079341a84db3ff8394abc1024f8ac9b149108eb3b664fe65f26944786a"
 
 # ruff: noqa: E402
 
@@ -17,6 +17,7 @@ from ecoscope_workflows_core.testing import create_task_magicmock  # 🧪
 
 from ecoscope_workflows_core.graph import DependsOn, DependsOnSequence, Graph, Node
 
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 
@@ -51,6 +52,7 @@ def main(params: Params):
     params_dict = json.loads(params.model_dump_json(exclude_unset=True))
 
     dependencies = {
+        "workflow_details": [],
         "groupers": [],
         "time_range": [],
         "get_events_data": ["time_range"],
@@ -97,10 +99,16 @@ def main(params: Params):
             "grouped_fd_map_widget_merge",
             "groupers",
             "time_range",
+            "workflow_details",
         ],
     }
 
     nodes = {
+        "workflow_details": Node(
+            async_task=set_workflow_details.validate().set_executor("lithops"),
+            partial=params_dict["workflow_details"],
+            method="call",
+        ),
         "groupers": Node(
             async_task=set_groupers.validate().set_executor("lithops"),
             partial=params_dict["groupers"],
@@ -440,6 +448,7 @@ def main(params: Params):
                 ),
                 "groupers": DependsOn("groupers"),
                 "time_range": DependsOn("time_range"),
+                "details": DependsOn("workflow_details"),
             }
             | params_dict["events_dashboard"],
             method="call",

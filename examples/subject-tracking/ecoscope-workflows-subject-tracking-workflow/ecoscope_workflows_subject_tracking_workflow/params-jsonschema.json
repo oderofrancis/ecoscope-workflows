@@ -1,6 +1,33 @@
 {
   "title": "Params",
   "properties": {
+    "workflow_details": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string",
+          "description": "The name of your workflow"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string",
+          "description": "A description"
+        },
+        "image_url": {
+          "title": "Image Url",
+          "type": "string",
+          "description": "An image url"
+        }
+      },
+      "required": [
+        "name",
+        "description",
+        "image_url"
+      ],
+      "type": "object",
+      "title": "Set Workflow Details"
+    },
     "groupers": {
       "additionalProperties": false,
       "properties": {
@@ -2129,11 +2156,35 @@
       ],
       "title": "GroupedWidget",
       "type": "object"
+    },
+    "WorkflowDetails": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "image_url": {
+          "default": null,
+          "title": "Image Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "description"
+      ],
+      "title": "WorkflowDetails",
+      "type": "object"
     }
   },
   "additionalProperties": false,
   "uiSchema": {
     "ui:order": [
+      "workflow_details",
       "groupers",
       "time_range",
       "subject_obs",

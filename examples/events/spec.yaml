@@ -9,7 +9,7 @@ requirements:
 
 workflow:
   - name: Set Workflow Details
-    id: details
+    id: workflow_details
     task: set_workflow_details
   # set 'global' groupers
   - name: Set Groupers
@@ -255,3 +255,4 @@ workflow:
         - ${{ workflow.grouped_fd_map_widget_merge.return }}
       groupers: ${{ workflow.groupers.return }}
       time_range: ${{ workflow.time_range.return}}
+      details: ${{ workflow.workflow_details.return}}

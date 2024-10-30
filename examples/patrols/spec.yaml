@@ -8,7 +8,7 @@ requirements:
     channel: file:///tmp/ecoscope-workflows/release/artifacts/
 workflow:
   - name: Set Workflow Details
-    id: details
+    id: workflow_details
     task: set_workflow_details
   # set 'global' groupers
   - name: Set Groupers
@@ -409,3 +409,4 @@ workflow:
         - ${{ workflow.max_speed_grouped_widget.return }}
       groupers: ${{ workflow.groupers.return }}
       time_range: ${{ workflow.time_range.return}}
+      details: ${{ workflow.workflow_details.return}}

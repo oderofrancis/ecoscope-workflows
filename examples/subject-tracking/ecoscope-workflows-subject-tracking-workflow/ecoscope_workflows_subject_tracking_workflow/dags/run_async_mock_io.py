@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "0d1105f115cdc90bd410b5ba170adfc21fb0b9d91af21f80eb7fac7ae90281bb"
+# from-spec-sha256 = "95135043b6f493b70457e3f7479ce50554ddb8f786beaca41929b331759dc9a0"
 
 # ruff: noqa: E402
 
@@ -17,6 +17,7 @@ from ecoscope_workflows_core.testing import create_task_magicmock  # 🧪
 
 from ecoscope_workflows_core.graph import DependsOn, DependsOnSequence, Graph, Node
 
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 
@@ -58,6 +59,7 @@ def main(params: Params):
     params_dict = json.loads(params.model_dump_json(exclude_unset=True))
 
     dependencies = {
+        "workflow_details": [],
         "groupers": [],
         "time_range": [],
         "subject_obs": ["time_range"],
@@ -121,10 +123,16 @@ def main(params: Params):
             "traj_daynight_grouped_map_widget",
             "groupers",
             "time_range",
+            "workflow_details",
         ],
     }
 
     nodes = {
+        "workflow_details": Node(
+            async_task=set_workflow_details.validate().set_executor("lithops"),
+            partial=params_dict["workflow_details"],
+            method="call",
+        ),
         "groupers": Node(
             async_task=set_groupers.validate().set_executor("lithops"),
             partial=params_dict["groupers"],
@@ -601,6 +609,7 @@ def main(params: Params):
                 ),
                 "groupers": DependsOn("groupers"),
                 "time_range": DependsOn("time_range"),
+                "details": DependsOn("workflow_details"),
             }
             | params_dict["subject_tracking_dashboard"],
             method="call",

@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4c4b15573d985d4dd22886118300bbb53ad094f5c88dbd6cc5bdcc47703957a9"
+# from-spec-sha256 = "13739a079341a84db3ff8394abc1024f8ac9b149108eb3b664fe65f26944786a"
 
 
 from __future__ import annotations
@@ -10,6 +10,15 @@ from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Union
 
 from pydantic import AnyUrl, AwareDatetime, BaseModel, ConfigDict, Field, confloat
+
+
+class WorkflowDetails(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    name: str = Field(..., description="The name of your workflow", title="Name")
+    description: str = Field(..., description="A description", title="Description")
+    image_url: str = Field(..., description="An image url", title="Image Url")
 
 
 class TimeRange(BaseModel):
@@ -522,6 +531,12 @@ class GroupedWidget(BaseModel):
     views: Dict[str, Union[Path, AnyUrl, str]] = Field(..., title="Views")
 
 
+class WorkflowDetails1(BaseModel):
+    name: str = Field(..., title="Name")
+    description: str = Field(..., title="Description")
+    image_url: Optional[str] = Field(None, title="Image Url")
+
+
 class Groupers(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
@@ -807,6 +822,9 @@ class EventsBarChart(BaseModel):
 class FormData(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
+    )
+    workflow_details: Optional[WorkflowDetails] = Field(
+        None, title="Set Workflow Details"
     )
     groupers: Optional[Groupers] = Field(None, title="Set Groupers")
     time_range: Optional[TimeRange] = Field(None, title="Set Time Range Filters")

@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "0d1105f115cdc90bd410b5ba170adfc21fb0b9d91af21f80eb7fac7ae90281bb"
+# from-spec-sha256 = "95135043b6f493b70457e3f7479ce50554ddb8f786beaca41929b331759dc9a0"
 
 
 # ruff: noqa: E402
@@ -13,6 +13,7 @@
 # ## Imports
 
 import os
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 from ecoscope_workflows_ext_ecoscope.tasks.io import get_subjectgroup_observations
@@ -40,6 +41,25 @@ from ecoscope_workflows_ext_ecoscope.tasks.analysis import get_day_night_ratio
 from ecoscope_workflows_core.tasks.analysis import dataframe_column_sum
 from ecoscope_workflows_ext_ecoscope.tasks.analysis import calculate_time_density
 from ecoscope_workflows_core.tasks.results import gather_dashboard
+
+# %% [markdown]
+# ## Set Workflow Details
+
+# %%
+# parameters
+
+workflow_details_params = dict(
+    name=...,
+    description=...,
+    image_url=...,
+)
+
+# %%
+# call the task
+
+
+workflow_details = set_workflow_details.partial(**workflow_details_params).call()
+
 
 # %% [markdown]
 # ## Set Groupers
@@ -1068,5 +1088,6 @@ subject_tracking_dashboard = gather_dashboard.partial(
     ],
     groupers=groupers,
     time_range=time_range,
+    details=workflow_details,
     **subject_tracking_dashboard_params,
 ).call()

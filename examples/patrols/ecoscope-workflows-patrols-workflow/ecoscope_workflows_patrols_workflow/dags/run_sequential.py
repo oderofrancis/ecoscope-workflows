@@ -1,9 +1,10 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "8a3657e3ebaa4bfbe1bbaaac414f150f77aaa86dfa1e7d1d71c3b10235974666"
+# from-spec-sha256 = "4dab6f509b16bc5d4578e3cb2f59388080f44633d1edbc8e2074def8c74de463"
 import json
 import os
 
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 from ecoscope_workflows_ext_ecoscope.tasks.io import get_patrol_observations
@@ -41,6 +42,12 @@ from ..params import Params
 
 def main(params: Params):
     params_dict = json.loads(params.model_dump_json(exclude_unset=True))
+
+    workflow_details = (
+        set_workflow_details.validate()
+        .partial(**params_dict["workflow_details"])
+        .call()
+    )
 
     groupers = set_groupers.validate().partial(**params_dict["groupers"]).call()
 
@@ -399,6 +406,7 @@ def main(params: Params):
             ],
             groupers=groupers,
             time_range=time_range,
+            details=workflow_details,
             **params_dict["patrol_dashboard"],
         )
         .call()

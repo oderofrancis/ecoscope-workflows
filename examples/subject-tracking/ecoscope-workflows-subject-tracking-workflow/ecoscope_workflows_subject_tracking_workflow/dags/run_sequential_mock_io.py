@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "0d1105f115cdc90bd410b5ba170adfc21fb0b9d91af21f80eb7fac7ae90281bb"
+# from-spec-sha256 = "95135043b6f493b70457e3f7479ce50554ddb8f786beaca41929b331759dc9a0"
 
 # ruff: noqa: E402
 
@@ -15,6 +15,7 @@ import warnings  # 🧪
 from ecoscope_workflows_core.testing import create_task_magicmock  # 🧪
 
 
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 
@@ -54,6 +55,12 @@ def main(params: Params):
     warnings.warn("This test script should not be used in production!")  # 🧪
 
     params_dict = json.loads(params.model_dump_json(exclude_unset=True))
+
+    workflow_details = (
+        set_workflow_details.validate()
+        .partial(**params_dict["workflow_details"])
+        .call()
+    )
 
     groupers = set_groupers.validate().partial(**params_dict["groupers"]).call()
 
@@ -403,6 +410,7 @@ def main(params: Params):
             ],
             groupers=groupers,
             time_range=time_range,
+            details=workflow_details,
             **params_dict["subject_tracking_dashboard"],
         )
         .call()
