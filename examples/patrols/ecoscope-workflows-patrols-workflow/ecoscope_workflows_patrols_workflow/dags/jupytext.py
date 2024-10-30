@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "8a3657e3ebaa4bfbe1bbaaac414f150f77aaa86dfa1e7d1d71c3b10235974666"
+# from-spec-sha256 = "1c976ba0e5c377c255c0965a50118c1da3fa0624e5bcd3a224df721f77a02741"
 
 
 # ruff: noqa: E402
@@ -13,6 +13,7 @@
 # ## Imports
 
 import os
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 from ecoscope_workflows_ext_ecoscope.tasks.io import get_patrol_observations
@@ -44,6 +45,25 @@ from ecoscope_workflows_core.tasks.results import create_plot_widget_single_view
 from ecoscope_workflows_ext_ecoscope.tasks.results import draw_pie_chart
 from ecoscope_workflows_ext_ecoscope.tasks.analysis import calculate_time_density
 from ecoscope_workflows_core.tasks.results import gather_dashboard
+
+# %% [markdown]
+# ## Set Workflow Details
+
+# %%
+# parameters
+
+workflow_details_params = dict(
+    name=...,
+    description=...,
+    image_url=...,
+)
+
+# %%
+# call the task
+
+
+workflow_details = set_workflow_details.partial(**workflow_details_params).call()
+
 
 # %% [markdown]
 # ## Set Groupers
@@ -1065,16 +1085,14 @@ td_map_widget = create_map_widget_single_view.partial(
 # %%
 # parameters
 
-patrol_dashboard_params = dict(
-    title=...,
-    description=...,
-)
+patrol_dashboard_params = dict()
 
 # %%
 # call the task
 
 
 patrol_dashboard = gather_dashboard.partial(
+    details=workflow_details,
     widgets=[
         traj_pe_grouped_map_widget,
         td_map_widget,

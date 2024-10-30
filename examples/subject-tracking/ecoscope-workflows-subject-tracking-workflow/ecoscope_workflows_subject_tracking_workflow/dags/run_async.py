@@ -1,11 +1,12 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "0d1105f115cdc90bd410b5ba170adfc21fb0b9d91af21f80eb7fac7ae90281bb"
+# from-spec-sha256 = "71942219c2ad314fb88fdc036bcbbd47f07aa1c5724911f9757ac0ec52b96089"
 import json
 import os
 
 from ecoscope_workflows_core.graph import DependsOn, DependsOnSequence, Graph, Node
 
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 from ecoscope_workflows_ext_ecoscope.tasks.io import get_subjectgroup_observations
@@ -41,6 +42,7 @@ def main(params: Params):
     params_dict = json.loads(params.model_dump_json(exclude_unset=True))
 
     dependencies = {
+        "workflow_details": [],
         "groupers": [],
         "time_range": [],
         "subject_obs": ["time_range"],
@@ -93,6 +95,7 @@ def main(params: Params):
         "td_map_widget": ["td_ecomap_html_url"],
         "td_grouped_map_widget": ["td_map_widget"],
         "subject_tracking_dashboard": [
+            "workflow_details",
             "traj_grouped_map_widget",
             "mean_speed_grouped_sv_widget",
             "max_speed_grouped_sv_widget",
@@ -108,6 +111,11 @@ def main(params: Params):
     }
 
     nodes = {
+        "workflow_details": Node(
+            async_task=set_workflow_details.validate().set_executor("lithops"),
+            partial=params_dict["workflow_details"],
+            method="call",
+        ),
         "groupers": Node(
             async_task=set_groupers.validate().set_executor("lithops"),
             partial=params_dict["groupers"],
@@ -569,6 +577,7 @@ def main(params: Params):
         "subject_tracking_dashboard": Node(
             async_task=gather_dashboard.validate().set_executor("lithops"),
             partial={
+                "details": DependsOn("workflow_details"),
                 "widgets": DependsOnSequence(
                     [
                         DependsOn("traj_grouped_map_widget"),

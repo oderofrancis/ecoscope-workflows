@@ -14,6 +14,7 @@ from ecoscope_workflows_core.jsonschema import (
     RJSFFilterUiSchema,
     oneOf,
 )
+from ecoscope_workflows_core.tasks.config._workflow_details import WorkflowDetails
 from ecoscope_workflows_core.tasks.filter._filter import TimeRange
 from ecoscope_workflows_core.tasks.groupby._groupby import Grouper
 from ecoscope_workflows_core.tasks.results._widget_types import (
@@ -262,8 +263,7 @@ def _flatten(possibly_nested: NestedWidgetList | FlatWidgetList) -> FlatWidgetLi
 
 @task
 def gather_dashboard(
-    title: Annotated[str, Field(description="The title of the dashboard")],
-    description: Annotated[str, Field(description="The description of the dashboard")],
+    details: Annotated[WorkflowDetails, Field(description="Workflow details")],
     time_range: Annotated[
         TimeRange | SkipJsonSchema[None], Field(description="Time range filter")
     ],
@@ -317,8 +317,8 @@ def gather_dashboard(
         grouper_choices=(grouper_choices if groupers else None),
         keys=(keys_sample if groupers else None),  # type: ignore[arg-type]
         metadata=Metadata(
-            title=title,
-            description=description,
+            title=details.name,
+            description=details.description,
             time_range=formatted_time_range,
         ),
     )
