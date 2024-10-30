@@ -4,8 +4,9 @@ test1:
   description: "Test case for subject-tracking"
   params:
     workflow_details:
-      name: "Subject Tracking Workflow"
-      description: "A subject tracking workflow"
+      name: "Subject Tracking Dashboard"
+      description: "A dashboard for visualizing subject trajectories and home range."
+
     # Parameters for 'Set Groupers' using task `set_groupers`.
     groupers:
       groupers: # (list[ecoscope_workflows.tasks.groupby._groupby.Grouper], FieldInfo(annotation=NoneType, required=True, description='            Index(es) and/or column(s) to group by, along with\n            optional display names and help text.\n            '))
@@ -255,9 +256,7 @@ test1:
     td_grouped_map_widget: {}
 
     # Parameters for 'Create Dashboard with Subject Tracking Widgets' using task `gather_dashboard`.
-    subject_tracking_dashboard:
-      title: "Subject Tracking Dashboard" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The title of the dashboard'))
-      description: "A dashboard for visualizing subject trajectories and home range." # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The description of the dashboard'))
+    subject_tracking_dashboard: {}
 
   assertions:
     result_stdout_contains:

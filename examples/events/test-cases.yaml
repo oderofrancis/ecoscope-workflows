@@ -4,8 +4,9 @@ test1:
   description: "Test case for events"
   params:
     workflow_details:
-      name: "Events Workflow"
-      description: "An events workflow"
+      name: "Events Dashboard"
+      description: "A dashboard for visualizing events."
+
     # Parameters for 'Set Groupers' using task `set_groupers`.
     groupers:
       groupers: # (list[ecoscope_workflows.tasks.groupby._groupby.Grouper], FieldInfo(annotation=NoneType, required=True, description='            Index(es) and/or column(s) to group by, along with\n            optional display names and help text.\n            '))
@@ -180,9 +181,7 @@ test1:
       title: "Grouped Density Map" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The title of the widget'))
     grouped_fd_map_widget_merge: {}
     # Parameters for 'Create Dashboard with Map Widgets' using task `gather_dashboard`.
-    events_dashboard:
-      title: "Events Dashboard"
-      description: "A dashboard for visualizing events."
+    events_dashboard: {}
 
   assertions:
     result_stdout_contains:

@@ -397,6 +397,7 @@ workflow:
     id: patrol_dashboard
     task: gather_dashboard
     partial:
+      details: ${{ workflow.workflow_details.return}}
       widgets:
         - ${{ workflow.traj_pe_grouped_map_widget.return }}
         - ${{ workflow.td_map_widget.return }}

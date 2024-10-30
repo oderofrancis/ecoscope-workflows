@@ -4,8 +4,9 @@ test1:
   description: "Test case for patrol-events"
   params:
     workflow_details:
-      name: "Patrols Workflow"
-      description: "A patrols workflow"
+      name: "Patrols Dashboard"
+      description: "A dashboard for visualizing patrol trajectories, patrols events, and time density."
+
     # Parameters for 'Set Groupers' using task `set_groupers`.
     groupers:
       groupers: # (list[ecoscope_workflows.tasks.groupby._groupby.Grouper], FieldInfo(annotation=NoneType, required=True, description='            Index(es) and/or column(s) to group by, along with\n            optional display names and help text.\n            '))
@@ -289,9 +290,7 @@ test1:
       title: "Time Density Map" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The title of the widget'))
 
     # Parameters for 'Create Dashboard with Patrol Map Widget' using task `gather_dashboard`.
-    patrol_dashboard:
-      title: "Patrols Dashboard"
-      description: "A dashboard for visualizing patrol trajectories, patrols events, and time density."
+    patrol_dashboard: {}
 
   assertions:
     result_stdout_contains:
