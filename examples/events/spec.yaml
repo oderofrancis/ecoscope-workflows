@@ -8,6 +8,9 @@ requirements:
     channel: file:///tmp/ecoscope-workflows/release/artifacts/
 
 workflow:
+  - name: Set Workflow Details
+    id: details
+    task: set_workflow_details
   # set 'global' groupers
   - name: Set Groupers
     id: groupers
