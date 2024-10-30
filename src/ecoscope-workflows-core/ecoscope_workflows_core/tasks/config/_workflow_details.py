@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from typing import Annotated
 
 from pydantic import Field
-from pydantic.json_schema import SkipJsonSchema
 
 from ecoscope_workflows_core.decorators import task
 
@@ -11,14 +10,14 @@ from ecoscope_workflows_core.decorators import task
 class WorkflowDetails:
     name: str
     description: str
-    image_url: str | SkipJsonSchema[None] = None
+    image_url: str = ""
 
 
 @task
 def set_workflow_details(
     name: Annotated[str, Field(description="The name of your workflow")],
     description: Annotated[str, Field(description="A description")],
-    image_url: Annotated[str, Field(description="An image url")] = None,
+    image_url: Annotated[str, Field(description="An image url")] = "",
 ) -> WorkflowDetails:
     return WorkflowDetails(
         name=name,
