@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "7875a291d3f7b77206919e350fd5dedb11be8260f09bdf5203901ac61ca53c16"
+# from-spec-sha256 = "d9d548e9cb9367a2c7ded96cb3d5d53baa753c1ae615426fd47ffb4d149d9df5"
 
 
 from __future__ import annotations
@@ -10,6 +10,15 @@ from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Union
 
 from pydantic import AnyUrl, AwareDatetime, BaseModel, ConfigDict, Field
+
+
+class WorkflowDetails(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    name: str = Field(..., description="The name of your workflow", title="Name")
+    description: str = Field(..., description="A description", title="Description")
+    image_url: Optional[str] = Field("", description="An image url", title="Image Url")
 
 
 class TimeRange(BaseModel):
@@ -365,16 +374,6 @@ class NsdChartWidget(BaseModel):
     title: str = Field(..., description="The title of the widget", title="Title")
 
 
-class SubjectTrackingDashboard(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str = Field(..., description="The title of the dashboard", title="Title")
-    description: str = Field(
-        ..., description="The description of the dashboard", title="Description"
-    )
-
-
 class Grouper(BaseModel):
     index_name: str = Field(..., title="Index Name")
     display_name: Optional[str] = Field(None, title="Display Name")
@@ -600,6 +599,12 @@ class GroupedWidget(BaseModel):
     title: str = Field(..., title="Title")
     is_filtered: bool = Field(..., title="Is Filtered")
     views: Dict[str, Union[Path, AnyUrl, str]] = Field(..., title="Views")
+
+
+class WorkflowDetails1(BaseModel):
+    name: str = Field(..., title="Name")
+    description: str = Field(..., title="Description")
+    image_url: Optional[str] = Field("", title="Image Url")
 
 
 class Groupers(BaseModel):
@@ -879,6 +884,9 @@ class Params(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
+    workflow_details: Optional[WorkflowDetails] = Field(
+        None, title="Set Workflow Details"
+    )
     groupers: Optional[Groupers] = Field(None, title="Set Groupers")
     time_range: Optional[TimeRange] = Field(None, title="Set Time Range Filters")
     subject_obs: Optional[SubjectObs] = Field(
@@ -1027,6 +1035,6 @@ class Params(BaseModel):
     nsd_chart_widget: Optional[NsdChartWidget] = Field(
         None, title="Create NSD Plot Widget"
     )
-    subject_tracking_dashboard: Optional[SubjectTrackingDashboard] = Field(
+    subject_tracking_dashboard: Optional[Dict[str, Any]] = Field(
         None, title="Create Dashboard with Subject Tracking Widgets"
     )

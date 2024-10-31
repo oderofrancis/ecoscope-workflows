@@ -1,6 +1,6 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "8a3657e3ebaa4bfbe1bbaaac414f150f77aaa86dfa1e7d1d71c3b10235974666"
+# from-spec-sha256 = "1c976ba0e5c377c255c0965a50118c1da3fa0624e5bcd3a224df721f77a02741"
 
 
 from __future__ import annotations
@@ -10,6 +10,15 @@ from pathlib import Path
 from typing import Any, Dict, List, Literal, Optional, Union
 
 from pydantic import AnyUrl, AwareDatetime, BaseModel, ConfigDict, Field, confloat
+
+
+class WorkflowDetails(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",
+    )
+    name: str = Field(..., description="The name of your workflow", title="Name")
+    description: str = Field(..., description="A description", title="Description")
+    image_url: Optional[str] = Field("", description="An image url", title="Image Url")
 
 
 class TimeRange(BaseModel):
@@ -413,16 +422,6 @@ class TdMapWidget(BaseModel):
     title: str = Field(..., description="The title of the widget", title="Title")
 
 
-class PatrolDashboard(BaseModel):
-    model_config = ConfigDict(
-        extra="forbid",
-    )
-    title: str = Field(..., description="The title of the dashboard", title="Title")
-    description: str = Field(
-        ..., description="The description of the dashboard", title="Description"
-    )
-
-
 class Grouper(BaseModel):
     index_name: str = Field(..., title="Index Name")
     display_name: Optional[str] = Field(None, title="Display Name")
@@ -621,6 +620,12 @@ class GroupedWidget(BaseModel):
     title: str = Field(..., title="Title")
     is_filtered: bool = Field(..., title="Is Filtered")
     views: Dict[str, Union[Path, AnyUrl, str]] = Field(..., title="Views")
+
+
+class WorkflowDetails1(BaseModel):
+    name: str = Field(..., title="Name")
+    description: str = Field(..., title="Description")
+    image_url: Optional[str] = Field("", title="Image Url")
 
 
 class Groupers(BaseModel):
@@ -898,6 +903,9 @@ class Params(BaseModel):
     model_config = ConfigDict(
         extra="forbid",
     )
+    workflow_details: Optional[WorkflowDetails] = Field(
+        None, title="Set Workflow Details"
+    )
     groupers: Optional[Groupers] = Field(None, title="Set Groupers")
     time_range: Optional[TimeRange] = Field(None, title="Set Time Range Filters")
     patrol_obs: Optional[PatrolObs] = Field(
@@ -1037,6 +1045,6 @@ class Params(BaseModel):
     td_map_widget: Optional[TdMapWidget] = Field(
         None, title="Create Time Density Map Widget"
     )
-    patrol_dashboard: Optional[PatrolDashboard] = Field(
+    patrol_dashboard: Optional[Dict[str, Any]] = Field(
         None, title="Create Dashboard with Patrol Map Widgets"
     )

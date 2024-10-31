@@ -3,6 +3,10 @@ test1:
   name: Test 1
   description: "Test case for events"
   params:
+    workflow_details:
+      name: "Events Dashboard"
+      description: "A dashboard for visualizing events."
+
     # Parameters for 'Set Groupers' using task `set_groupers`.
     groupers:
       groupers: # (list[ecoscope_workflows.tasks.groupby._groupby.Grouper], FieldInfo(annotation=NoneType, required=True, description='            Index(es) and/or column(s) to group by, along with\n            optional display names and help text.\n            '))
@@ -95,13 +99,14 @@ test1:
     # Parameters for 'Feature Density Colormap' using task `apply_color_map`.
     fd_colormap:
       input_column_name: "density" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The name of the column with categorical values.'))
-      colormap: "YlOrRd" # (str | list[str], FieldInfo(annotation=NoneType, required=True, description='Either a named mpl.colormap or a list of string hex values.'))
+      colormap: "RdYlGn_r" # (str | list[str], FieldInfo(annotation=NoneType, required=True, description='Either a named mpl.colormap or a list of string hex values.'))
       output_column_name: "density_colormap"
     # Parameters for 'Create map layer from Feature Density' using task `create_map_layer`.
     fd_map_layer:
       layer_style: # (ecoscope_workflows.tasks.results._ecomap.PolylineLayerStyle | ecoscope_workflows.tasks.results._ecomap.PolygonLayerStyle | ecoscope_workflows.tasks.results._ecomap.PointLayerStyle, FieldInfo(annotation=NoneType, required=True, description='Style arguments for the layer.'))
         layer_type: "polygon"
         fill_color_column: "density_colormap"
+        get_line_width: 0
         opacity: 0.4
     # Parameters for 'Draw Ecomap from Feature Density' using task `draw_ecomap`.
     fd_ecomap:
@@ -155,13 +160,14 @@ test1:
     # Parameters for 'Grouped Feature Density Colormap' using task `apply_color_map`.
     grouped_fd_colormap:
       input_column_name: "density" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The name of the column with categorical values.'))
-      colormap: "YlOrRd" # (str | list[str], FieldInfo(annotation=NoneType, required=True, description='Either a named mpl.colormap or a list of string hex values.'))
+      colormap: "RdYlGn_r" # (str | list[str], FieldInfo(annotation=NoneType, required=True, description='Either a named mpl.colormap or a list of string hex values.'))
       output_column_name: "density_colormap"
     # Parameters for 'Create map layer from Feature Density' using task `create_map_layer`.
     grouped_fd_map_layer:
       layer_style: # (ecoscope_workflows.tasks.results._ecomap.PolylineLayerStyle | ecoscope_workflows.tasks.results._ecomap.PolygonLayerStyle | ecoscope_workflows.tasks.results._ecomap.PointLayerStyle, FieldInfo(annotation=NoneType, required=True, description='Style arguments for the layer.'))
         layer_type: "polygon"
         fill_color_column: "density_colormap"
+        get_line_width: 0
         opacity: 0.4
     # Parameters for 'Draw Ecomap from Feature Density' using task `draw_ecomap`.
     grouped_fd_ecomap:
@@ -177,9 +183,7 @@ test1:
       title: "Grouped Density Map" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The title of the widget'))
     grouped_fd_map_widget_merge: {}
     # Parameters for 'Create Dashboard with Map Widgets' using task `gather_dashboard`.
-    events_dashboard:
-      title: "Events Dashboard"
-      description: "A dashboard for visualizing events."
+    events_dashboard: {}
 
   assertions:
     result_stdout_contains:

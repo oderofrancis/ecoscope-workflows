@@ -8,6 +8,9 @@ requirements:
     channel: file:///tmp/ecoscope-workflows/release/artifacts/
 
 workflow:
+  - name: Set Workflow Details
+    id: workflow_details
+    task: set_workflow_details
   # set 'global' groupers
   - name: Set Groupers
     id: groupers
@@ -243,6 +246,7 @@ workflow:
     id: events_dashboard
     task: gather_dashboard
     partial:
+      details: ${{ workflow.workflow_details.return}}
       widgets:
         - ${{ workflow.events_map_widget.return }}
         - ${{ workflow.events_bar_chart_widget.return }}

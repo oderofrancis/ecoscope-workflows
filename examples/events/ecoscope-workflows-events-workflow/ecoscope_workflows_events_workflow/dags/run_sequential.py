@@ -1,9 +1,10 @@
 # [generated]
 # by = { compiler = "ecoscope-workflows-core", version = "9999" }
-# from-spec-sha256 = "4c4b15573d985d4dd22886118300bbb53ad094f5c88dbd6cc5bdcc47703957a9"
+# from-spec-sha256 = "b5668113de9c7ad66e877a1a1213652245a4dcce1605622c1676fda3585da365"
 import json
 import os
 
+from ecoscope_workflows_core.tasks.config import set_workflow_details
 from ecoscope_workflows_core.tasks.groupby import set_groupers
 from ecoscope_workflows_core.tasks.filter import set_time_range
 from ecoscope_workflows_ext_ecoscope.tasks.io import get_events
@@ -30,6 +31,12 @@ from ..params import Params
 
 def main(params: Params):
     params_dict = json.loads(params.model_dump_json(exclude_unset=True))
+
+    workflow_details = (
+        set_workflow_details.validate()
+        .partial(**params_dict["workflow_details"])
+        .call()
+    )
 
     groupers = set_groupers.validate().partial(**params_dict["groupers"]).call()
 
@@ -287,6 +294,7 @@ def main(params: Params):
     events_dashboard = (
         gather_dashboard.validate()
         .partial(
+            details=workflow_details,
             widgets=[
                 events_map_widget,
                 events_bar_chart_widget,
