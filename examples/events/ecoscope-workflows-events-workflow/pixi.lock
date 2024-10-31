@@ -5680,8 +5680,8 @@ packages:
   subdir: noarch
   noarch: python
   url: file:///tmp/ecoscope-workflows/release/artifacts/noarch/ecoscope-workflows-core-v0.0.12-pyh4616a5c_0.conda
-  sha256: c169979f3993c0ffa31521587c6363191868265731e40dd00017ef3e6d637032
-  md5: c1b148fe0124c4139b9cf4ce68835ef9
+  sha256: ac1fbd992cddfeda9ea4b1ac9c1bdaa8de225c805cb9dcb092e3db676d0b7bc7
+  md5: 48878aed5fe588b8dc1dece4d3019523
   depends:
   - python
   - jinja2
@@ -5698,8 +5698,8 @@ packages:
   - pydot
   - python
   license: BSD-3-Clause
-  size: 51098
-  timestamp: 1730403248190
+  size: 51105
+  timestamp: 1730404277025
 - kind: pypi
   name: ecoscope-workflows-events-workflow
   version: 0.0.0
@@ -5714,16 +5714,16 @@ packages:
   subdir: noarch
   noarch: python
   url: file:///tmp/ecoscope-workflows/release/artifacts/noarch/ecoscope-workflows-ext-ecoscope-v0.0.12-pyh4616a5c_0.conda
-  sha256: d8b52f0d913bbb7c0bc9359a6acb675bc89791f8541004dce165549a0dfc26f9
-  md5: 056876a35b6d1126466789bd33272ca2
+  sha256: 0baa0cd04029cd4d515637951992ae06c7d461a0d970f4f5b7f9946609ce17d8
+  md5: 67284865cc0091b970be3e9c491627d1
   depends:
   - python
   - ecoscope-workflows-core ==v0.0.12
   - ecoscope ==v1.8.8
   - python
   license: BSD-3-Clause
-  size: 6777652
-  timestamp: 1730403297353
+  size: 6777671
+  timestamp: 1730404295853
 - kind: conda
   name: email-validator
   version: 2.2.0
