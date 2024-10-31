@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - ecoscope-workflows-core ==${{ version }}  # core & ext-ecoscope pinned to same version
-    - ecoscope ==v1.8.6
+    - ecoscope ==v1.8.8
 
 tests:
   - python:
