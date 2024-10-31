@@ -3,6 +3,10 @@ test1:
   name: Test 1
   description: "Test case for patrol-events"
   params:
+    workflow_details:
+      name: "Patrols Dashboard"
+      description: "A dashboard for visualizing patrol trajectories, patrols events, and time density."
+
     # Parameters for 'Set Groupers' using task `set_groupers`.
     groupers:
       groupers: # (list[ecoscope_workflows.tasks.groupby._groupby.Grouper], FieldInfo(annotation=NoneType, required=True, description='            Index(es) and/or column(s) to group by, along with\n            optional display names and help text.\n            '))
@@ -259,7 +263,7 @@ test1:
     # Parameters for 'Patrol Events Colormap' using task `apply_color_map`.
     td_colormap:
       input_column_name: "percentile" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The name of the column with categorical values.'))
-      colormap: "RdYlGn_r" # (str | list[str], FieldInfo(annotation=NoneType, required=True, description='Either a named mpl.colormap or a list of string hex values.'))
+      colormap: "RdYlGn" # (str | list[str], FieldInfo(annotation=NoneType, required=True, description='Either a named mpl.colormap or a list of string hex values.'))
       output_column_name: "percentile_colormap"
 
     # Parameters for 'Create map layer from Time Density' using task `create_map_layer`.
@@ -286,9 +290,7 @@ test1:
       title: "Time Density Map" # (<class 'str'>, FieldInfo(annotation=NoneType, required=True, description='The title of the widget'))
 
     # Parameters for 'Create Dashboard with Patrol Map Widget' using task `gather_dashboard`.
-    patrol_dashboard:
-      title: "Patrols Dashboard"
-      description: "A dashboard for visualizing patrol trajectories, patrols events, and time density."
+    patrol_dashboard: {}
 
   assertions:
     result_stdout_contains:
