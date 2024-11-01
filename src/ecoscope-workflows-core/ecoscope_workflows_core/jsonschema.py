@@ -104,7 +104,7 @@ class ReactJSONSchemaFormFilters(BaseModel):
 
 
 class ReactJSONSchemaFormConfiguration(BaseModel):
-    title: str = "Params"
+    title: str | None
     properties: dict[str, Any]
     definitions: dict[str, Any] | None = Field(alias="$defs", default=None)
     additionalProperties: bool = False

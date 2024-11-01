@@ -125,7 +125,7 @@ class Tests(BaseModel):
 
 class PackageDirectory(BaseModel):
     dags: Dags
-    params_jsonschema: dict = Field(..., alias="params-jsonschema.json")
+    rjsf: dict = Field(..., alias="rjsf.json")
     params_model: str = Field(..., alias="params.py")
     formdata_model: str = Field(..., alias="formdata.py")
     app: str = Field(..., alias="app.py")
@@ -135,11 +135,11 @@ class PackageDirectory(BaseModel):
 
     def dump(self, dst: Path):
         for fname, content in self.model_dump(
-            by_alias=True, exclude={"params_jsonschema", "dags"}
+            by_alias=True, exclude={"rjsf", "dags"}
         ).items():
             dst.joinpath(fname).write_text(content)
-        with dst.joinpath("params-jsonschema.json").open("w") as f:
-            json.dump(self.params_jsonschema, f, indent=2)
+        with dst.joinpath("rjsf.json").open("w") as f:
+            json.dump(self.rjsf, f, indent=2)
             f.write("\n")
         dst.joinpath("dags").mkdir(parents=True)
         for fname, content in self.dags.model_dump(by_alias=True).items():

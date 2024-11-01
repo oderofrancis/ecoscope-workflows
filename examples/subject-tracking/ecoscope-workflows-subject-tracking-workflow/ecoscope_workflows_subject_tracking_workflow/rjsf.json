@@ -1,5 +1,4 @@
 {
-  "title": "Params",
   "properties": {
     "workflow_details": {
       "additionalProperties": false,

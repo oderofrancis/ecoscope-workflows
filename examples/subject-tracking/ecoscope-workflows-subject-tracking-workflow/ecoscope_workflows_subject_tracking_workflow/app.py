@@ -112,8 +112,8 @@ def run(
 
 
 @app.get("/rjsf", status_code=200)
-def params_jsonschema():
-    with Path(__file__).parent.joinpath("params-jsonschema.json").open() as f:
+def rjsf():
+    with Path(__file__).parent.joinpath("rjsf.json").open() as f:
         return json.load(f)
 
 

@@ -580,7 +580,7 @@ class DagCompiler(BaseModel):
         return props, defs
 
     def get_params_jsonschema(
-        self, model_title: str = "Params", flat: bool = True
+        self, model_title: str | None = None, flat: bool = True
     ) -> dict[str, Any]:
         properties: dict[str, Any] = {}
         definitions: dict[str, Any] = {}
@@ -625,7 +625,7 @@ class DagCompiler(BaseModel):
             properties=properties,
         )
         react_json_schema_form.definitions = definitions
-        return react_json_schema_form.model_dump(by_alias=True)
+        return react_json_schema_form.model_dump(by_alias=True, exclude_none=True)
 
     def get_params_fillable_yaml(self) -> str:
         yaml_str = ""
@@ -793,7 +793,6 @@ class DagCompiler(BaseModel):
             dcg.generate(
                 json.dumps(params_jsonschema),
                 input_file_type=dcg.InputFileType.JsonSchema,
-                input_filename="params-jsonschema.json",
                 output=output,
                 output_model_type=dcg.DataModelType.PydanticV2BaseModel,
                 use_subclass_enum=True,
@@ -862,7 +861,7 @@ class DagCompiler(BaseModel):
                     self.get_params_jsonschema(model_title="FormData", flat=False),
                     self.file_header,
                 ),
-                "params-jsonschema.json": self.get_params_jsonschema(flat=False),
+                "rjsf.json": self.get_params_jsonschema(flat=False),
                 "params.py": self.generate_params_model(
                     self.get_params_jsonschema(model_title="Params", flat=True),
                     self.file_header,

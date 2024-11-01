@@ -37,7 +37,6 @@ def test_get_params(client: TestClient):
     response = client.get("/rjsf")
     assert response.status_code == 200
     assert set(list(response.json())) == {
-        "title",
         "properties",
         "$defs",
         "additionalProperties",
